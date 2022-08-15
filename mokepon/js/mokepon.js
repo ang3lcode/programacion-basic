@@ -16,5 +16,24 @@ function seleccionarMascotaJugador(){
     } else {
         alert('solecciona uno')
     }
+    seleccionarMascotaEnemigo()
 }
+
+function seleccionarMascotaEnemigo (){
+    let spanMascotaEnemigo = document.getElementById('mascota-enemigo');
+    let ataqueAleatorio = aleatorio(1,3);
+
+    if (ataqueAleatorio == 1) {
+        spanMascotaEnemigo.innerHTML = 'hipodoge';
+    } else if (ataqueAleatorio == 2){
+        spanMascotaEnemigo.innerHTML = 'Capipepo';
+    }else {
+        spanMascotaEnemigo.innerHTML = 'Ratigueya';
+    }
+}
+
+let aleatorio = (min, max) => {
+    return Math.floor(Math.random() * (max - min +1 ) + min);
+}
+
 window.addEventListener('load',iniciarJuego);
