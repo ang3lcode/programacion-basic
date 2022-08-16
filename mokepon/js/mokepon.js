@@ -1,6 +1,15 @@
+let ataqueJugador
+
 function iniciarJuego(){
     let botonMascotaJugador=document.getElementById('boton-mascota');
     botonMascotaJugador.addEventListener('click',seleccionarMascotaJugador);
+
+    let botonFuego = document.getElementById('boton-fuego');
+    botonFuego.addEventListener('click',ataqueFuego);
+    let botonAgua = document.getElementById('boton-agua');
+    botonAgua.addEventListener('click',ataqueAgua);
+    let botonTierra = document.getElementById('boton-tierra');
+    botonTierra.addEventListener('click',ataqueTierra);
 }
 function seleccionarMascotaJugador(){
     let inputHipodoge=document.getElementById('hipodoge')
@@ -31,7 +40,18 @@ function seleccionarMascotaEnemigo (){
         spanMascotaEnemigo.innerHTML = 'Ratigueya';
     }
 }
-
+function ataqueFuego(){
+    ataqueJugador = 'Fuego'
+    alert('ataque jugador');
+}
+function ataqueAgua(){
+    ataqueJugador = 'Agua'
+    alert('ataque jugador');
+}
+function ataqueTierra(){
+    ataqueJugador = 'Tierra'
+    alert('ataque jugador');
+}
 let aleatorio = (min, max) => {
     return Math.floor(Math.random() * (max - min +1 ) + min);
 }
