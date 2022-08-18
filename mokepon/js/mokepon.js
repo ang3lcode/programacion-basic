@@ -1,5 +1,7 @@
 let ataqueJugador
 let ataqueEnemigo
+let vidasJugador = 3
+let vidasEnemigo = 3
 
 function iniciarJuego(){
     let botonMascotaJugador=document.getElementById('boton-mascota');
@@ -68,16 +70,22 @@ function ataqueAleatorioEnemigo(){
 }
 // aqui tenia el error
 function combate(){ 
+    let spanVidasjugador = document.getElementById('vidas-jugador')
+    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
+
     if (ataqueEnemigo == ataqueJugador) {
         crearMensaje("EMPATE")
-    } else if(ataqueJugador=='fuego'&&ataqueEnemigo=='tierra'){
+    } else if(ataqueJugador=='fuego'&&ataqueEnemigo=='tierra' || 
+    ataqueJugador=='agua'&&ataqueEnemigo=='fuego' || 
+    ataqueJugador=='tierra'&&ataqueEnemigo=='agua'){
         crearMensaje("GANASTE")
-    } else if(ataqueJugador=='agua'&&ataqueEnemigo=='fuego'){
-        crearMensaje("GANASTE")
-    } else if(ataqueJugador=='tierra'&&ataqueEnemigo=='agua'){
-        crearMensaje("GANASTE")
-    }else{
+        vidasEnemigo --
+        spanVidasEnemigo.innerHTML = vidasEnemigo;
+    } else{
         crearMensaje("PERDISTE")
+        vidasJugador --
+        spanVidasjugador.innerHTML = vidasJugador;
     }
     
 }
