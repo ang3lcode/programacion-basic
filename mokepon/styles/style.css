@@ -50,3 +50,18 @@ body {
 input {
     display: none;
 } 
+#seleccionar-ataque { 
+    /*el flex lo esta tomando de archivo de js */
+    flex-direction: column;
+    align-items: center;
+}
+.boton-ataque {
+    background-color: #11468f;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: transparent;
+    width: 100px;
+    color: white;
+    font-family:poppins,sans-serif;
+}
