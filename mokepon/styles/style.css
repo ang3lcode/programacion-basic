@@ -65,3 +65,19 @@ input {
     color: white;
     font-family:poppins,sans-serif;
 }
+
+#mensaje {
+    width: 280px;
+    background: #eeeeee;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#boton-reiniciar {
+    border: none;
+    color: #11468f;
+    font-family:poppins,sans-serif;
+}
