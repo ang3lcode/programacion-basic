@@ -81,3 +81,7 @@ input {
     color: #11468f;
     font-family:poppins,sans-serif;
 }
+.ataque {
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
