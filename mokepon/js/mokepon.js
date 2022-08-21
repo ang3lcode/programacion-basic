@@ -7,9 +7,7 @@ const botonTierra = document.getElementById('boton-tierra');
 const botonReiniciar = document.getElementById('boton-reiniciar');
 
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota');
-const inputHipodoge=document.getElementById('hipodoge');
-const inputCapipepo=document.getElementById('capipepo');
-const inputRatigueya=document.getElementById('ratigueya');
+
 const spanMascotaJugador = document.getElementById('mascota-jugador');
 
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo');
@@ -28,7 +26,9 @@ const contenedirTarjetas =document.getElementById('contenedorTarjetas');
 let ataqueJugador
 let ataqueEnemigo
 let opcionDeMokepones
-
+let inputHipodoge
+let inputCapipepo
+let inputRatigueya
 let vidasJugador = 3
 let vidasEnemigo = 3
 
@@ -82,6 +82,9 @@ function iniciarJuego(){
         </label>
         `
         contenedirTarjetas.innerHTML += opcionDeMokepones;
+        inputHipodoge=document.getElementById('Hipodoge');
+        inputCapipepo=document.getElementById('Capipepo');
+        inputRatigueya=document.getElementById('Ratigueya');
     })
 
     sectionReiniciar.style.display = 'none';    
@@ -95,11 +98,11 @@ function seleccionarMascotaJugador(){
     sectionSeleccionarMascota.style.display = 'none';    
     sectionSeleccionarAtaque.style.display = 'flex';    
     if (inputHipodoge.checked){
-        spanMascotaJugador.innerHTML = 'hipodoge'
+        spanMascotaJugador.innerHTML = inputHipodoge.id
     } else if(inputCapipepo.checked){
-        spanMascotaJugador.innerHTML = 'Capipepo'
+        spanMascotaJugador.innerHTML = inputCapipepo.id
     } else if (inputRatigueya.checked){
-        spanMascotaJugador.innerHTML = 'Ratigueya'
+        spanMascotaJugador.innerHTML = inputRatigueya.id
     } else {
         alert('solecciona uno')
     }
