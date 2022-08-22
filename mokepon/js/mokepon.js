@@ -25,7 +25,8 @@ const contenedorAtaques = document.getElementById('contenedorAtaques');
 
 let ataqueJugador
 let ataquesMokepon
-let ataqueEnemigo
+let ataqueEnemigo = []
+let ataquesMokeponEnemigo
 let opcionDeMokepones
 let inputHipodoge
 let inputCapipepo
@@ -161,12 +162,14 @@ function secuenciaAtaque() {
                 console.log(ataqueJugador2)
                 boton.style.background = '#112f58'
             }
+            ataqueAleatorioEnemigo()
         })
     })
 }
 function seleccionarMascotaEnemigo (){
     let mascotaAleatorio = aleatorio(0, mokepones.length -1);   
     spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatorio].nombre
+    ataquesMokeponEnemigo = mokepones[mascotaAleatorio].ataques
     secuenciaAtaque() 
 }
 // function ataqueFuego(){
@@ -182,14 +185,15 @@ function seleccionarMascotaEnemigo (){
 //     ataqueAleatorioEnemigo()
 // }
 function ataqueAleatorioEnemigo(){
-    let ataqueAleatorio = aleatorio(1, 3);
-    if (ataqueAleatorio == 1) {
-        ataqueEnemigo = 'fuego'
-    } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = 'agua'
+    let ataqueAleatorio = aleatorio(0, mokepones.length -1);
+    if (ataqueAleatorio == 0 || ataqueAleatorio ==1) {
+        ataqueEnemigo.push('FUEGO')
+    } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
+        ataqueEnemigo.push('AGUA')
     } else {
-        ataqueEnemigo = 'tierra'
-    }    
+        ataqueEnemigo.push('TIERRA')
+    } 
+    console.log(ataqueEnemigo) 
    combate() 
 }
 // aqui tenia el error
