@@ -104,13 +104,13 @@ input:checked + label {
   justify-content: center;
 }
 
-#mapa {
+/* #mapa {
   border: 2px solid white;
   background-image: url('../assets/mokemap.webp');
   background-repeat: no-repeat;
   background-position: center center; 
   background-size: contain; 
-}
+} */
 
 @media (max-width: 360px) {
   .tarjetas, .tarjetas-ataques {
