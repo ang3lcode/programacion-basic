@@ -88,6 +88,13 @@ hipodoge.ataques.push(
     {nombre:'🔥', id:'boton-fuego'},
     {nombre:'🌱', id:'boton-tierra'}
 );
+hipodogeEnemigo.ataques.push(
+    {nombre:'💧', id:'boton-agua'},
+    {nombre:'💧', id:'boton-agua'},
+    {nombre:'💧', id:'boton-agua'},
+    {nombre:'🔥', id:'boton-fuego'},
+    {nombre:'🌱', id:'boton-tierra'}
+);
 capipepo.ataques.push(
     {nombre:'🌱', id:'boton-tierra'},
     {nombre:'🌱', id:'boton-tierra'},
@@ -95,7 +102,21 @@ capipepo.ataques.push(
     {nombre:'💧', id:'boton-agua'},
     {nombre:'🔥', id:'boton-fuego'}
 );
+capipepoEnemigo.ataques.push(
+    {nombre:'🌱', id:'boton-tierra'},
+    {nombre:'🌱', id:'boton-tierra'},
+    {nombre:'🌱', id:'boton-tierra'},
+    {nombre:'💧', id:'boton-agua'},
+    {nombre:'🔥', id:'boton-fuego'}
+);
 ratigueya.ataques.push(
+    {nombre:'🔥', id:'boton-fuego'},
+    {nombre:'🔥', id:'boton-fuego'},
+    {nombre:'🔥', id:'boton-fuego'},
+    {nombre:'💧', id:'boton-agua'},
+    {nombre:'🌱', id:'boton-tierra'}
+);
+ratigueyaEnemigo.ataques.push(
     {nombre:'🔥', id:'boton-fuego'},
     {nombre:'🔥', id:'boton-fuego'},
     {nombre:'🔥', id:'boton-fuego'},
@@ -129,8 +150,7 @@ function iniciarJuego() {
 }
 function seleccionarMascotaJugador() {    
     sectionSeleccionarMascota.style.display = 'none'    
-    // sectionSeleccionarAtaque.style.display = 'flex'
-    
+        
 
     if (inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = inputHipodoge.id
@@ -149,7 +169,7 @@ function seleccionarMascotaJugador() {
     sectionVerMapa.style.display = 'flex'  
     
     iniciarMapa()
-    seleccionarMascotaEnemigo()
+    
 }
 function extraerAtaques(mascotaJugador) {
     let ataques
@@ -199,12 +219,10 @@ function secuenciaAtaque() {
     
 
 }
-function seleccionarMascotaEnemigo() {
-    let mascotaAleatoria = aleatorio(0, mokepones.length -1)
-
-    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
-    ataquesMokeponEnemigo = mokepones[mascotaAleatoria].ataques
-    secuenciaAtaque()
+function seleccionarMascotaEnemigo(enemigo) {
+    spanMascotaEnemigo.innerHTML=enemigo.nombre
+ataquesMokeponEnemigo=enemigo.ataques
+secuenciaAtaque()
 }
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(0,ataquesMokeponEnemigo.length -1)
@@ -388,7 +406,11 @@ function revisarColision(enemigo) {
     }
 
     detenerMovimiento()
-    alert("Hay colision" + enemigo.nombre)
+    clearInterval(intervalo)
+    sectionSeleccionarAtaque.style.display='flex'
+    sectionVerMapa.style.display = 'none'
+    seleccionarMascotaEnemigo(enemigo)
+    // alert("Hay colision" + enemigo.nombre)
 }
 
 window.addEventListener('load',iniciarJuego);
